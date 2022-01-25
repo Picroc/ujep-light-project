@@ -1,6 +1,5 @@
 module.exports = {
     extends: [
-        'plugin:react/recommended',
         'plugin:prettier/recommended',
         'plugin:@typescript-eslint/recommended',
     ],
@@ -9,7 +8,7 @@ module.exports = {
             version: 'detect',
         },
     },
-    plugins: ['prettier', 'react', 'react-hooks', '@typescript-eslint', 'import'],
+    plugins: ['prettier', '@typescript-eslint', 'import'],
     env: {
         es6: true,
         browser: true,
@@ -34,8 +33,6 @@ module.exports = {
         '@typescript-eslint/no-use-before-define': ['error', { functions: false, classes: false }],
         'no-shadow': 'off',
         '@typescript-eslint/no-shadow': 'error',
-        'react-hooks/rules-of-hooks': 'warn',
-        'react-hooks/exhaustive-deps': 'warn',
         'default-param-last': 'warn',
         'no-promise-executor-return': 'warn',
     },
@@ -48,7 +45,7 @@ module.exports = {
             },
         },
         {
-            files: ['*.ts', '*.tsx'],
+            files: ['*.ts'],
             parser: '@typescript-eslint/parser',
             rules: {
                 '@typescript-eslint/no-explicit-any': 'off',
@@ -57,7 +54,6 @@ module.exports = {
                 'import/extensions': 'off',
                 'import/no-unresolved': 'off',
                 'import/no-cycle': [2, { ignoreExternal: true }],
-                'react/prop-types': 'off',
                 '@typescript-eslint/ban-ts-comment': 'off',
                 'flowtype/no-types-missing-file-annotation': 'off',
                 'no-unused-expressions': 'off',
@@ -74,8 +70,7 @@ module.exports = {
             },
         },
         {
-            files: ['*.tsx'],
-            excludedFiles: ['*.test.tsx', '*.spec.tsx'],
+            files: ['*.ts'],
             rules: {
                 'max-lines': [
                     'error',
