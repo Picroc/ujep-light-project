@@ -1,5 +1,6 @@
 <script>
     import { onMount } from 'svelte';
+    import { fade } from 'svelte/transition';
 
     let canvas;
 
@@ -37,18 +38,24 @@
 </script>
 
 <canvas
+    transition:fade
     bind:this={canvas}
     width={32}
     height={32}
 ></canvas>
+
 
 <style>
     canvas {
         width: 10%;
         height: 10%;
         background-color: #666;
-        margin: auto;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
         -webkit-mask: url(/assets/logo.svg) 50% 50% no-repeat;
         mask: url(/assets/logo.svg) 50% 50% no-repeat;
+        position: absolute;
     }
 </style>

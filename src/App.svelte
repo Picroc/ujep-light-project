@@ -1,14 +1,32 @@
 <script lang="ts">
 	import AnimationLogo from './components/animationLogo.svelte';
 	import AnimationScroller from './components/animationScroller.svelte';
+	import { fade, fly } from 'svelte/transition';
+	// import { afterUpdate, beforeUpdate, onMount } from 'svelte';
 
-	export let name: string;
+	let loaded;
+	// let showText = true;
+	let div;
+	let scrollY;
+
+	// onMount(() => {
+	// 	showText = div.getBoundingClientRect().y > 0;
+	// })
+	//
+	// afterUpdate(() => {
+	// 	showText = div ? div.getBoundingClientRect().y > 0 : true;
+	// 	console.log(div && div.getBoundingClientRect());
+	// });
 </script>
 
+<svelte:window bind:scrollY />
+<AnimationScroller bind:loaded />
 <main>
-	<AnimationScroller />
-	<AnimationLogo />
-	<p>This is a placeholder for the LIGHT project.</p>
+	{ #if !loaded }
+		<AnimationLogo />
+	{:else }
+		<h2 bind:this={div} in:fly="{{ y: -200, duration: 2000 }}" out:fade>Scroll down</h2>
+	{/if}
 </main>
 
 <style>
@@ -19,8 +37,8 @@
 		margin: 0 auto;
 	}
 
-	h1 {
-		color: #ff3e00;
+	h2 {
+		color: #6b5955;
 		text-transform: uppercase;
 		font-size: 4em;
 		font-weight: 100;
