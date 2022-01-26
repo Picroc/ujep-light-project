@@ -9,7 +9,7 @@
     $: calcHeight = `${framesCount * pixelsPerScroll + windowHeight}px`;
 
 
-    $: source = scrollValue > 20 ? `/assets/animation/animation_frame${Math.min(Math.floor(scrollValue / 20), framesCount)}.png` : '';
+    $: source = scrollValue > 20 ? `/assets/animation/animation_frame${Math.min(Math.floor(scrollValue / 20), framesCount)}.jpg` : '';
 
     async function preload() {
         console.log('Function working');
@@ -17,7 +17,7 @@
             new Promise((resolve => {
                 const img = new Image();
                 img.onload = resolve;
-                img.src = `/assets/animation/animation_frame${number + 1}.png`;
+                img.src = `/assets/animation/animation_frame${number + 1}.jpg`;
                 console.log('Loading', img.src);
             }))
         );

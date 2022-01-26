@@ -1273,7 +1273,7 @@ var app = (function () {
     		const framesArray = [...Array(framesCount).keys()].map(number => new Promise(resolve => {
     				const img = new Image();
     				img.onload = resolve;
-    				img.src = `/assets/animation/animation_frame${number + 1}.png`;
+    				img.src = `/assets/animation/animation_frame${number + 1}.jpg`;
     				console.log('Loading', img.src);
     			}));
 
@@ -1331,7 +1331,7 @@ var app = (function () {
 
     		if ($$self.$$.dirty & /*scrollValue*/ 2) {
     			$$invalidate(2, source = scrollValue > 20
-    			? `/assets/animation/animation_frame${Math.min(Math.floor(scrollValue / 20), framesCount)}.png`
+    			? `/assets/animation/animation_frame${Math.min(Math.floor(scrollValue / 20), framesCount)}.jpg`
     			: '');
     		}
     	};
