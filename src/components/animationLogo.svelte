@@ -47,8 +47,8 @@
 
 <style>
     canvas {
-        width: 10%;
-        height: 10%;
+        width: 20%;
+        height: 20%;
         background-color: #666;
         margin-left: auto;
         margin-right: auto;
@@ -57,5 +57,7 @@
         -webkit-mask: url(/assets/logo.svg) 50% 50% no-repeat;
         mask: url(/assets/logo.svg) 50% 50% no-repeat;
         position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
     }
 </style>
