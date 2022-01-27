@@ -170,17 +170,24 @@
     $: source = scrollValue > 20 ? `/assets/animation/animation_frame${Math.min(frameMapper[scrollValue], framesCount)}.jpg` : '';
 
     async function preload() {
-        console.log('Function working');
         const framesArray = [...Array(framesCount).keys()].map(number =>
             new Promise((resolve => {
                 const img = new Image();
                 img.onload = resolve;
                 img.src = `/assets/animation/animation_frame${number + 1}.jpg`;
-                console.log('Loading', img.src);
             }))
         );
 
+        const graphsArray = infoBlocks.map(item =>
+            item.src ? new Promise((resolve => {
+                const img = new Image();
+                img.onload = resolve;
+                img.src = item.src;
+            })) : null
+        ).filter(Boolean);
+
         await Promise.all(framesArray);
+        await Promise.all(graphsArray);
         loaded = true;
 
         return Promise.resolve();
