@@ -1284,17 +1284,17 @@ var app = (function () {
     	return block;
     }
 
-    // (188:25)      <div class='backgroundAnimation'>         {#if source}
+    // (189:25)      <div class='backgroundAnimation'>         {#if source}
     function create_then_block(ctx) {
     	let div;
-    	let if_block = /*source*/ ctx[2] && create_if_block_1$1(ctx);
+    	let if_block = /*source*/ ctx[2] && create_if_block_2(ctx);
 
     	const block = {
     		c: function create() {
     			div = element("div");
     			if (if_block) if_block.c();
-    			attr_dev(div, "class", "backgroundAnimation svelte-ou7bxz");
-    			add_location(div, file$1, 188, 4, 8829);
+    			attr_dev(div, "class", "backgroundAnimation svelte-7cxfrl");
+    			add_location(div, file$1, 189, 4, 8964);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -1305,7 +1305,7 @@ var app = (function () {
     				if (if_block) {
     					if_block.p(ctx, dirty);
     				} else {
-    					if_block = create_if_block_1$1(ctx);
+    					if_block = create_if_block_2(ctx);
     					if_block.c();
     					if_block.m(div, null);
     				}
@@ -1324,15 +1324,15 @@ var app = (function () {
     		block,
     		id: create_then_block.name,
     		type: "then",
-    		source: "(188:25)      <div class='backgroundAnimation'>         {#if source}",
+    		source: "(189:25)      <div class='backgroundAnimation'>         {#if source}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (190:8) {#if source}
-    function create_if_block_1$1(ctx) {
+    // (191:8) {#if source}
+    function create_if_block_2(ctx) {
     	let img;
     	let img_src_value;
 
@@ -1341,8 +1341,8 @@ var app = (function () {
     			img = element("img");
     			if (!src_url_equal(img.src, img_src_value = /*source*/ ctx[2])) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "");
-    			attr_dev(img, "class", "svelte-ou7bxz");
-    			add_location(img, file$1, 190, 12, 8896);
+    			attr_dev(img, "class", "svelte-7cxfrl");
+    			add_location(img, file$1, 191, 12, 9031);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -1359,9 +1359,9 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_1$1.name,
+    		id: create_if_block_2.name,
     		type: "if",
-    		source: "(190:8) {#if source}",
+    		source: "(191:8) {#if source}",
     		ctx
     	});
 
@@ -1383,8 +1383,8 @@ var app = (function () {
     	return block;
     }
 
-    // (196:0) { #if scrollToBlock[frameMapper[scrollValue]] }
-    function create_if_block$1(ctx) {
+    // (197:0) { #if scrollToBlock[frameMapper[scrollValue]] }
+    function create_if_block_1$1(ctx) {
     	let scrollerblock;
     	let current;
 
@@ -1430,9 +1430,48 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
+    		id: create_if_block_1$1.name,
+    		type: "if",
+    		source: "(197:0) { #if scrollToBlock[frameMapper[scrollValue]] }",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (205:0) { #if frameMapper[scrollValue] > 1111 }
+    function create_if_block$1(ctx) {
+    	let div;
+    	let a;
+    	let span;
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			a = element("a");
+    			span = element("span");
+    			attr_dev(span, "class", "svelte-7cxfrl");
+    			add_location(span, file$1, 207, 12, 9603);
+    			attr_dev(a, "href", "https://www.instagram.com/vizualove/");
+    			add_location(a, file$1, 206, 8, 9543);
+    			attr_dev(div, "class", "linker svelte-7cxfrl");
+    			add_location(div, file$1, 205, 4, 9514);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    			append_dev(div, a);
+    			append_dev(a, span);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
     		id: create_if_block$1.name,
     		type: "if",
-    		source: "(196:0) { #if scrollToBlock[frameMapper[scrollValue]] }",
+    		source: "(205:0) { #if frameMapper[scrollValue] > 1111 }",
     		ctx
     	});
 
@@ -1450,7 +1489,8 @@ var app = (function () {
     	let div;
     	let t0;
     	let t1;
-    	let if_block_anchor;
+    	let t2;
+    	let if_block1_anchor;
     	let current;
     	let mounted;
     	let dispose;
@@ -1465,11 +1505,12 @@ var app = (function () {
     		pending: create_pending_block,
     		then: create_then_block,
     		catch: create_catch_block,
-    		value: 13
+    		value: 14
     	};
 
     	handle_promise(/*preload*/ ctx[6](), info);
-    	let if_block = /*scrollToBlock*/ ctx[3][/*frameMapper*/ ctx[5][/*scrollValue*/ ctx[0]]] && create_if_block$1(ctx);
+    	let if_block0 = /*scrollToBlock*/ ctx[3][/*frameMapper*/ ctx[5][/*scrollValue*/ ctx[0]]] && create_if_block_1$1(ctx);
+    	let if_block1 = /*frameMapper*/ ctx[5][/*scrollValue*/ ctx[0]] > 1111 && create_if_block$1(ctx);
 
     	const block = {
     		c: function create() {
@@ -1477,10 +1518,12 @@ var app = (function () {
     			t0 = space();
     			info.block.c();
     			t1 = space();
-    			if (if_block) if_block.c();
-    			if_block_anchor = empty();
-    			attr_dev(div, "class", "scrollSpacer svelte-ou7bxz");
-    			add_location(div, file$1, 178, 0, 8587);
+    			if (if_block0) if_block0.c();
+    			t2 = space();
+    			if (if_block1) if_block1.c();
+    			if_block1_anchor = empty();
+    			attr_dev(div, "class", "scrollSpacer svelte-7cxfrl");
+    			add_location(div, file$1, 179, 0, 8722);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -1492,8 +1535,10 @@ var app = (function () {
     			info.mount = () => t1.parentNode;
     			info.anchor = t1;
     			insert_dev(target, t1, anchor);
-    			if (if_block) if_block.m(target, anchor);
-    			insert_dev(target, if_block_anchor, anchor);
+    			if (if_block0) if_block0.m(target, anchor);
+    			insert_dev(target, t2, anchor);
+    			if (if_block1) if_block1.m(target, anchor);
+    			insert_dev(target, if_block1_anchor, anchor);
     			current = true;
 
     			if (!mounted) {
@@ -1524,35 +1569,46 @@ var app = (function () {
     			update_await_block_branch(info, ctx, dirty);
 
     			if (/*scrollToBlock*/ ctx[3][/*frameMapper*/ ctx[5][/*scrollValue*/ ctx[0]]]) {
-    				if (if_block) {
-    					if_block.p(ctx, dirty);
+    				if (if_block0) {
+    					if_block0.p(ctx, dirty);
 
     					if (dirty & /*scrollValue*/ 1) {
-    						transition_in(if_block, 1);
+    						transition_in(if_block0, 1);
     					}
     				} else {
-    					if_block = create_if_block$1(ctx);
-    					if_block.c();
-    					transition_in(if_block, 1);
-    					if_block.m(if_block_anchor.parentNode, if_block_anchor);
+    					if_block0 = create_if_block_1$1(ctx);
+    					if_block0.c();
+    					transition_in(if_block0, 1);
+    					if_block0.m(t2.parentNode, t2);
     				}
-    			} else if (if_block) {
+    			} else if (if_block0) {
     				group_outros();
 
-    				transition_out(if_block, 1, 1, () => {
-    					if_block = null;
+    				transition_out(if_block0, 1, 1, () => {
+    					if_block0 = null;
     				});
 
     				check_outros();
     			}
+
+    			if (/*frameMapper*/ ctx[5][/*scrollValue*/ ctx[0]] > 1111) {
+    				if (if_block1) ; else {
+    					if_block1 = create_if_block$1(ctx);
+    					if_block1.c();
+    					if_block1.m(if_block1_anchor.parentNode, if_block1_anchor);
+    				}
+    			} else if (if_block1) {
+    				if_block1.d(1);
+    				if_block1 = null;
+    			}
     		},
     		i: function intro(local) {
     			if (current) return;
-    			transition_in(if_block);
+    			transition_in(if_block0);
     			current = true;
     		},
     		o: function outro(local) {
-    			transition_out(if_block);
+    			transition_out(if_block0);
     			current = false;
     		},
     		d: function destroy(detaching) {
@@ -1562,8 +1618,10 @@ var app = (function () {
     			info.token = null;
     			info = null;
     			if (detaching) detach_dev(t1);
-    			if (if_block) if_block.d(detaching);
-    			if (detaching) detach_dev(if_block_anchor);
+    			if (if_block0) if_block0.d(detaching);
+    			if (detaching) detach_dev(t2);
+    			if (if_block1) if_block1.d(detaching);
+    			if (detaching) detach_dev(if_block1_anchor);
     			mounted = false;
     			run_all(dispose);
     		}
@@ -1707,6 +1765,7 @@ var app = (function () {
     	let blockScrollValue = 0;
     	let scrollEnabled = true;
     	let { loaded = false } = $$props;
+    	const calcHeightValue = framesCount * pixelsPerScroll + windowHeight + infoBlocks.reduce((prev, curr) => prev + curr.duration, 0);
     	const calcHeight = `${framesCount * pixelsPerScroll + windowHeight + infoBlocks.reduce((prev, curr) => prev + curr.duration, 0)}px`;
 
     	const frameMapper = [
@@ -1776,6 +1835,7 @@ var app = (function () {
     		loaded,
     		framesCount,
     		pixelsPerScroll,
+    		calcHeightValue,
     		calcHeight,
     		frameMapper,
     		preload,

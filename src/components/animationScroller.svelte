@@ -129,6 +129,7 @@
 
     const framesCount = 1116;
     const pixelsPerScroll = 20;
+    const calcHeightValue = framesCount * pixelsPerScroll + windowHeight + infoBlocks.reduce((prev, curr) => prev + curr.duration, 0);
     const calcHeight =
         `${framesCount * pixelsPerScroll + windowHeight + infoBlocks.reduce((prev, curr) => prev + curr.duration, 0)}px`;
 
@@ -201,6 +202,14 @@
     />
 {/if}
 
+{ #if frameMapper[scrollValue] > 1111 }
+    <div class='linker'>
+        <a href='https://www.instagram.com/vizualove/'>
+            <span></span>
+        </a>
+    </div>
+{ /if }
+
 <svelte:window bind:scrollY={scrollValue} bind:innerHeight={windowHeight} />
 
 <style>
@@ -234,5 +243,25 @@
     .testSpacer div {
         position: relative;
         height: 2000px;
+    }
+
+    .linker {
+        position: fixed;
+        left: -4%;
+        right: 0;
+        margin-right: auto;
+        margin-left: auto;
+        width: 6%;
+        height: 10%;
+        bottom: 10%;
+        opacity: 0;
+    }
+
+    .linker span {
+        position: absolute;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
     }
 </style>
