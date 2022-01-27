@@ -13,6 +13,7 @@
             text: 'Světlo vzniká chemickou reakcí v jádru hvězdy – termonukleární fúze vodíku na helium.\n' +
                 'Tato reakce uvolňuje energii v podobě záření procházející hvězdou ven.',
             position: 'right',
+            src: '/assets/graphs/stars.png',
         },
         {
             id: 'sun',
@@ -22,6 +23,7 @@
             text: 'Světlo vzniká chemickou reakcí v jádru hvězdy – termonukleární fúze vodíku na helium.\n' +
                 'Tato reakce uvolňuje energii v podobě záření procházející hvězdou ven.',
             position: 'right',
+            src: '/assets/graphs/sun.png',
         },
         {
             id: 'rad',
@@ -30,6 +32,7 @@
             title: 'Radiace',
             text: 'Emise energie ve formě vlnění (elektromagnetického záření) nebo částic skrze prostor či  hmotu.\n' +
                 'Záření vzniká z hvězd, akrečních disků (rozptýlený materiál obíhající okolo tělesa jako např. hvězdy nebo černé díry), reliktního záření z období po velkém třesku, mezihvězdného mračna (uskupení plynu, plazmatu a prachu v galaxiích)',
+            src: '/assets/graphs/rad.png',
         },
         {
             id: 'polar',
@@ -39,6 +42,7 @@
             text: 'Na Slunci vznikají vlivem nerovností v magnetickém poli sluneční skvrny, u kterých vznikne masivní erupce. Mrak částic z protonů, elektronů a alfa částic letí vesmírem. Část se ho stáčí po spirálách směrem k magnetickým pólům Země, sráží se s atmosférou a emituje se elektromagnetické záření ve viditelném spektru.\n' +
                 'Je jevem tzv. vesmírného počasí.',
             position: 'right',
+            src: '/assets/graphs/polar.png',
         },
         {
             id: 'lightning',
@@ -46,6 +50,7 @@
             duration: COMMON_DURATION,
             title: 'Blesk',
             text: 'Přiblížením kladně nabitého oblaku k záporně nabitému vznikne vysoké elektrické napětí, které se vyrovná světelným výbojem – bleskem. To samé může nastat mezi mrakem a zemí.',
+            src: '/assets/graphs/lightning.png',
         },
         {
             id: 'mushrooms',
@@ -68,6 +73,7 @@
             duration: COMMON_DURATION,
             title: 'Oheň',
             text: 'Vzniká hořením, tedy chemickou reakcí mezi hořlavinou, kyslíkem a zdrojem iniciace, při které se uvolňuje energie v podobě tepla a světla.',
+            src: '/assets/graphs/fire.png',
         },
         {
             id: 'bulb',
@@ -76,6 +82,7 @@
             title: 'Žárovka',
             text: 'Světlo je vyzařováno wolframovým vodičem (vláknem) zahřátým elektrickým proudem na vysokou teplotu. Většina energie je ztracena vyzařovaným teplem.',
             position: 'right',
+            src: '/assets/graphs/bulb.png',
         },
         {
             id: 'lamp',
@@ -85,21 +92,24 @@
             text: 'Elektrony se srážejí s atomy rtuti. Elektrony atomů rtuti mají tak nestabilní hladinu energie. Aby se tyto elektrony dostaly na stabilní (nižší) hladinu energie, emitují záření v převážně ultrafialových délkách, ty jsou látkou luminofor odráženy ve formě viditelného světla.\n' +
                 'Zářivky jsou efektivnější než žárovky (méně tepla, více světla).\n',
             position: 'right',
+            src: '/assets/graphs/lamp.png',
         },
         {
             id: 'mac',
             stopFrame: 967,
             duration: COMMON_DURATION,
             title: 'Monitor',
-            text: 'Light-Emitting Diode funuje na principu elektroluminiscence, tedy luminiscence, při níž dochází k přeměně elektrické energie ve světlo při průchodu proudu vhodným materiálem (luminoforem), na rozdíl od emise světla (incandescence) nebo od reakce různých chemikálií (chemiluminiscence). Prochází-li elektrický náboj luminoforem, elektrony s vysokou energetickou hladinou uvolňují svou energii ve formě fotonů – světla. Barva světa se odvíjí obvykle od barvy diody. Spojením červené, zelené a modré diody můžeme dosáhnout různých barev úpravou poměrů světelnosti nebo bílé.',
+            text: 'Light-Emitting Diode funuje na principu elektroluminiscence, tedy luminiscence, při níž dochází k přeměně elektrické energie ve světlo při průchodu proudu vhodným materiálem (luminoforem), na rozdíl od emise světla (incandescence) nebo od reakce různých chemikálií (chemiluminiscence).',
+            src: '/assets/graphs/mac.png',
         },
         {
             id: 'laser',
             stopFrame: 1056,
             duration: COMMON_DURATION,
             title: 'Laser',
-            text: 'Výbojka (trubice naplněná směsí plynů s elektrickým vodičem) dodává energii do aktivního prostředí (obvykle směs plynů), kde vybudí elektrony na vyšší, nestabilní energetickou hladinu. Elektrony následně přestoupí na nižší energetickou hladinu a přitom vyzáří množství energie ve formě fotonů. Ty interagují s dalšími elektrony s vyšší hladinou energie, čímž spouštějí tzv. stimulovanou emisi fotonů. Aktivní část laseru je umístěna v prostoru se zrcadly, ve kterém se paprsky odrážejí a exponenciálně umocňují emisi světla, které je nasměrováno ven z laseru polopropustným sklem.\n',
+            text: 'Výbojka (trubice naplněná směsí plynů s elektrickým vodičem) dodává energii do aktivního prostředí (obvykle směs plynů), kde vybudí elektrony na vyšší, nestabilní energetickou hladinu.',
             position: 'right',
+            src: '/assets/graphs/laser.png',
         },
     ].sort((a, b) => a.stopFrame - b.stopFrame);
     const scrollToBlock = infoBlocks.reduce((prev, curr) => ({ ...prev, [curr.stopFrame]: curr }), {});
@@ -197,6 +207,7 @@
 { #if scrollToBlock[frameMapper[scrollValue]] }
     <ScrollerBlock title={scrollToBlock[frameMapper[scrollValue]].title}
                    text={scrollToBlock[frameMapper[scrollValue]].text}
+                   svgSource={scrollToBlock[frameMapper[scrollValue]].src}
                    position={scrollToBlock[frameMapper[scrollValue]].position || 'left'}
                    downed={scrollToBlock[frameMapper[scrollValue]].id === 'laser'}
     />

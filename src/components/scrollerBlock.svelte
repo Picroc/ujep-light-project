@@ -11,6 +11,11 @@
 <div transition:fly={{ x: position === 'left' ? -200 : 200, duration: 1000 }} class='scrollerBlock {position} {`${ downed ? "downed" : "" }`}'>
     <h2>{title}</h2>
     <p>{text}</p>
+    { #if svgSource }
+        <div class='sourceGraph'>
+            <img src={svgSource} />
+        </div>
+    {/if}
 </div>
 
 <style>
@@ -24,6 +29,20 @@
         width: 22%;
         line-height: 25px;
         font-size: large;
+        white-space: pre-wrap;
+    }
+
+    .scrollerBlock p {
+        margin: 0;
+    }
+
+    .scrollerBlock h2 {
+        margin: 0;
+    }
+
+    .sourceGraph img {
+        max-height: 100px;
+        height: 100px;
     }
 
     .left {
@@ -35,6 +54,6 @@
     }
 
     .downed {
-        top: 60%;
+        top: 70%;
     }
 </style>
