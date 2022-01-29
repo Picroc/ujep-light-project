@@ -1,6 +1,7 @@
 <script>
     import { styles } from '../utils/styles';
     import ScrollerBlock from './scrollerBlock.svelte';
+    import { beforeUpdate, onMount } from 'svelte';
 
     const COMMON_DURATION = 500;
 
@@ -135,6 +136,7 @@
     let scrollValue = 0;
     let blockScrollValue = 0;
     let scrollEnabled = true;
+    let canvas;
     export let loaded = false;
 
     const framesCount = 1116;
@@ -161,6 +163,10 @@
         return Math.floor((scrollVal - toAdd) / 20);
     });
 
+    let currentImg;
+    let toUpdateImg;
+    let scrollerInstance;
+
     // $: {
     //     console.log('SCROLL', scrollValue);
     //     console.log('FRAME', frameMapper[scrollValue]);
@@ -168,6 +174,10 @@
 
 
     $: source = scrollValue > 20 ? `/assets/animation/animation_frame${Math.min(frameMapper[scrollValue], framesCount)}.jpg` : '';
+
+    function getSourceWithoutHost (srcStr) {
+        return srcStr && srcStr.slice(srcStr.indexOf('/assets/'));
+    }
 
     async function preload() {
         const framesArray = [...Array(framesCount).keys()].map(number =>
@@ -193,6 +203,30 @@
         return Promise.resolve();
     }
 
+    beforeUpdate(() => {
+        if (scrollerInstance) {
+            if (source) {
+                if (!currentImg) {
+                    currentImg = new Image();
+                    currentImg.src = source;
+                    toUpdateImg = currentImg;
+                    scrollerInstance.innerHTML = '';
+                    scrollerInstance.appendChild(currentImg);
+                } else if (getSourceWithoutHost(currentImg.src) !== source) {
+                    if (getSourceWithoutHost(toUpdateImg.src) !== source) {
+                        toUpdateImg = new Image();
+                        toUpdateImg.src = source;
+                        toUpdateImg.onload = () => {
+                            currentImg = toUpdateImg;
+                            scrollerInstance.innerHTML = '';
+                            scrollerInstance.appendChild(currentImg);
+                        }
+                    }
+                }
+            }
+        }
+    });
+
 </script>
 <div use:styles={{calcHeight}} class='scrollSpacer'>
 </div>
@@ -204,10 +238,10 @@
 
 
 {#await preload() then _}
-    <div class='backgroundAnimation'>
-        {#if source}
-            <img src={source} alt=''>
-        {/if}
+    <div class='backgroundAnimation' bind:this={scrollerInstance}>
+        <!--{#if source}-->
+        <!--    <img src={source} alt=''>-->
+        <!--{/if}-->
     </div>
 {/await}
 
@@ -240,6 +274,11 @@
     .backgroundAnimation {
         position: fixed;
         z-index: -1;
+        width: 100%;
+        height: 100%;
+    }
+
+    .backgroundAnimation canvas {
         width: 100%;
         height: 100%;
     }
