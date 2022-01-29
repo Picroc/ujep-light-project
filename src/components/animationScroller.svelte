@@ -137,6 +137,8 @@
     let scrollEnabled = true;
     export let loaded = false;
 
+    $: frameNumber = frameMapper[Math.floor(scrollValue)];
+
     const framesCount = 1116;
     const pixelsPerScroll = 20;
     const calcHeightValue = framesCount * pixelsPerScroll + windowHeight + infoBlocks.reduce((prev, curr) => prev + curr.duration, 0);
@@ -167,7 +169,7 @@
     // }
 
 
-    $: source = scrollValue > 20 ? `/assets/animation/animation_frame${Math.min(frameMapper[scrollValue], framesCount)}.jpg` : '';
+    $: source = scrollValue > 20 ? `/assets/animation/animation_frame${Math.min(frameNumber, framesCount)}.jpg` : '';
 
     async function preload() {
         const framesArray = [...Array(framesCount).keys()].map(number =>
@@ -211,12 +213,12 @@
     </div>
 {/await}
 
-{ #if scrollToBlock[frameMapper[scrollValue]] }
-    <ScrollerBlock title={scrollToBlock[frameMapper[scrollValue]].title}
-                   text={scrollToBlock[frameMapper[scrollValue]].text}
-                   svgSource={scrollToBlock[frameMapper[scrollValue]].src}
-                   position={scrollToBlock[frameMapper[scrollValue]].position || 'left'}
-                   downed={scrollToBlock[frameMapper[scrollValue]].id === 'laser'}
+{ #if scrollToBlock[frameNumber] }
+    <ScrollerBlock title={scrollToBlock[frameNumber].title}
+                   text={scrollToBlock[frameNumber].text}
+                   svgSource={scrollToBlock[frameNumber].src}
+                   position={scrollToBlock[frameNumber].position || 'left'}
+                   downed={scrollToBlock[frameNumber].id === 'laser'}
     />
 {/if}
 
