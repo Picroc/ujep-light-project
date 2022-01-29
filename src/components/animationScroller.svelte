@@ -227,6 +227,8 @@
         }
     });
 
+    $: frameNumber = frameMapper[scrollValue];
+
 </script>
 <div use:styles={{calcHeight}} class='scrollSpacer'>
 </div>
@@ -245,12 +247,12 @@
     </div>
 {/await}
 
-{ #if scrollToBlock[frameMapper[scrollValue]] }
-    <ScrollerBlock title={scrollToBlock[frameMapper[scrollValue]].title}
-                   text={scrollToBlock[frameMapper[scrollValue]].text}
-                   svgSource={scrollToBlock[frameMapper[scrollValue]].src}
-                   position={scrollToBlock[frameMapper[scrollValue]].position || 'left'}
-                   downed={scrollToBlock[frameMapper[scrollValue]].id === 'laser'}
+{ #if scrollToBlock[frameNumber] }
+    <ScrollerBlock title={scrollToBlock[frameNumber].title}
+                   text={scrollToBlock[frameNumber].text}
+                   svgSource={scrollToBlock[frameNumber].src}
+                   position={scrollToBlock[frameNumber].position || 'left'}
+                   downed={scrollToBlock[frameNumber].id === 'laser'}
     />
 {/if}
 
