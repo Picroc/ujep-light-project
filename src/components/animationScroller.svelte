@@ -1,6 +1,7 @@
 <script>
     import { styles } from '../utils/styles';
     import ScrollerBlock from './scrollerBlock.svelte';
+    import AnimationLogo from './animationLogo.svelte';
 
     const COMMON_DURATION = 500;
 
@@ -172,13 +173,30 @@
     $: source = scrollValue > 20 ? `/assets/animation/animation_frame${Math.min(frameNumber, framesCount)}.jpg` : '';
 
     async function preload() {
-        const framesArray = [...Array(framesCount).keys()].map(number =>
-            new Promise((resolve => {
-                const img = new Image();
-                img.onload = resolve;
-                img.src = `/assets/animation/animation_frame${number + 1}.jpg`;
-            }))
-        );
+        const chunkSize = 50;
+        let tempArray;
+
+        for (let i = 0; i < framesCount; i+=chunkSize) {
+            tempArray = [];
+            for (let j = 0; j < chunkSize; j++) {
+                const number = i + j;
+                if (number >= framesCount) break;
+                tempArray.push(new Promise((resolve => {
+                    const img = new Image();
+                    img.onload = resolve;
+                    img.src = `/assets/animation/animation_frame${number + 1}.jpg`;
+                })));
+            }
+            await Promise.all(tempArray);
+        }
+
+        // const framesArray = [...Array(framesCount).keys()].map(number =>
+        //     new Promise((resolve => {
+        //         const img = new Image();
+        //         img.onload = resolve;
+        //         img.src = `/assets/animation/animation_frame${number + 1}.jpg`;
+        //     }))
+        // );
 
         const graphsArray = infoBlocks.map(item =>
             item.src ? new Promise((resolve => {
@@ -188,7 +206,7 @@
             })) : null
         ).filter(Boolean);
 
-        await Promise.all(framesArray);
+        // await Promise.all(framesArray);
         await Promise.all(graphsArray);
         loaded = true;
 
@@ -205,7 +223,9 @@
 <!--{/if}-->
 
 
-{#await preload() then _}
+{#await preload()}
+    <AnimationLogo />
+{:then _}
     <div class='backgroundAnimation'>
         {#if source}
             <img src={source} alt=''>

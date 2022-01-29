@@ -27,9 +27,7 @@
 <svelte:window bind:scrollY />
 <AnimationScroller bind:loaded />
 <main>
-	{ #if !loaded }
-		<AnimationLogo />
-	{:else if scrollY < 50 }
+	{ #if loaded && scrollY < 50 }
 		<div class='bubble' bind:this={div} in:fly="{{ y: 200, duration: 2000 }}" out:fly="{{ y: 200, duration: 2000 }}">
 			<img src='/assets/arrow.gif'>
 		</div>
