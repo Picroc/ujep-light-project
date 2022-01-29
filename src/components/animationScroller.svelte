@@ -31,8 +31,8 @@
             stopFrame: 319,
             duration: COMMON_DURATION,
             title: 'Radiace',
-            text: 'Emise energie ve formě vlnění (elektromagnetického záření) nebo částic skrze prostor či  hmotu.\n' +
-                'Záření vzniká z hvězd, akrečních disků (rozptýlený materiál obíhající okolo tělesa jako např. hvězdy nebo černé díry), reliktního záření z období po velkém třesku, mezihvězdného mračna (uskupení plynu, plazmatu a prachu v galaxiích)',
+            text: 'Emise energie ve formě vlnění (elektromagnetického záření) nebo částic skrze prostor či hmotu.\n' +
+                'Záření vzniká z hvězd, akrečních disků (rozptýlený materiál obíhající okolo tělesa jako např. hvězdy nebo černé díry), reliktního záření z období po velkém třesku a mezihvězdného mračna (uskupení plynu, plazmatu a prachu v galaxiích).',
             src: '/assets/graphs/rad.png',
         },
         {
@@ -58,7 +58,7 @@
             stopFrame: 533,
             duration: COMMON_DURATION,
             title: 'Bioluminiscenční Houby',
-            text: 'Světlo vzniká chemickou reakcí kyslíku, vápníku a luciferinu za přítomnosti luciferázy. Při reakci se uvolňuje energie v podobě světla a tepla (bioluminiscence). Více než 80 % energie je emitováno v podobě světla',
+            text: 'Světlo vzniká chemickou reakcí kyslíku, vápníku a luciferinu za přítomnosti luciferázy. Při reakci se uvolňuje energie v podobě světla a tepla (bioluminiscence). Více než 80 % energie je emitováno v podobě světla.',
             position: 'right',
         },
         {
@@ -66,7 +66,7 @@
             stopFrame: 606,
             duration: COMMON_DURATION,
             title: 'Medúza',
-            text: 'Světlo vzniká chemickou reakcí kyslíku, vápníku a luciferinu za přítomnosti luciferázy. Při reakci se uvolňuje energie v podobě světla a tepla (bioluminiscence). Více než 80 % energie je emitováno v podobě světla',
+            text: 'Světlo vzniká chemickou reakcí kyslíku, vápníku a luciferinu za přítomnosti luciferázy. Při reakci se uvolňuje energie v podobě světla a tepla (bioluminiscence). Více než 80 % energie je emitováno v podobě světla.',
         },
         {
             id: 'fire',
@@ -100,7 +100,7 @@
             stopFrame: 967,
             duration: COMMON_DURATION,
             title: 'Monitor',
-            text: 'Light-Emitting Diode funuje na principu elektroluminiscence, tedy luminiscence, při níž dochází k přeměně elektrické energie ve světlo při průchodu proudu vhodným materiálem (luminoforem), na rozdíl od emise světla (incandescence) nebo od reakce různých chemikálií (chemiluminiscence).',
+            text: 'Light-Emitting Diode funguje na principu elektroluminiscence, tedy luminiscence, při níž dochází k přeměně elektrické energie ve světlo při průchodu proudu vhodným materiálem (luminoforem), na rozdíl od emise světla (incandescence) nebo od reakce různých chemikálií (chemiluminiscence).',
             src: '/assets/graphs/mac.png',
         },
         {
