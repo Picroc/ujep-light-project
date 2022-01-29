@@ -242,7 +242,7 @@
     />
 {/if}
 
-{ #if frameMapper[scrollValue] > 1111 }
+{ #if frameNumber > 1111 }
     <div class='linker'>
         <a href='https://www.instagram.com/vizualove/'>
             <span></span>
