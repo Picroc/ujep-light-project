@@ -214,8 +214,7 @@
     }
 
 </script>
-<div use:styles={{calcHeight}} class='scrollSpacer'>
-</div>
+
 <!--{ #if scrollValue > 1000 && scrollValue < 1500 }-->
 <!--    <div class='testSpacer'>-->
 <!--        <div></div>-->
@@ -226,6 +225,8 @@
 {#await preload()}
     <AnimationLogo />
 {:then _}
+    <div use:styles={{calcHeight}} class='scrollSpacer'>    
+    </div>
     <div class='backgroundAnimation'>
         {#if source}
             <img src={source} alt=''>
