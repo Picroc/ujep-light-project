@@ -1354,7 +1354,7 @@ var app = (function () {
     	return block;
     }
 
-    // (227:0) {:then _}
+    // (229:0) {:then _}
     function create_then_block(ctx) {
     	let div0;
     	let t;
@@ -1370,9 +1370,9 @@ var app = (function () {
     			div1 = element("div");
     			if (if_block) if_block.c();
     			attr_dev(div0, "class", "scrollSpacer svelte-jin6qg");
-    			add_location(div0, file$1, 227, 4, 9632);
+    			add_location(div0, file$1, 229, 4, 9730);
     			attr_dev(div1, "class", "backgroundAnimation svelte-jin6qg");
-    			add_location(div1, file$1, 229, 4, 9704);
+    			add_location(div1, file$1, 231, 4, 9802);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div0, anchor);
@@ -1415,14 +1415,14 @@ var app = (function () {
     		block,
     		id: create_then_block.name,
     		type: "then",
-    		source: "(227:0) {:then _}",
+    		source: "(229:0) {:then _}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (231:8) {#if source}
+    // (233:8) {#if source}
     function create_if_block_2(ctx) {
     	let img;
     	let img_src_value;
@@ -1433,7 +1433,7 @@ var app = (function () {
     			if (!src_url_equal(img.src, img_src_value = /*source*/ ctx[3])) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "");
     			attr_dev(img, "class", "svelte-jin6qg");
-    			add_location(img, file$1, 231, 12, 9771);
+    			add_location(img, file$1, 233, 12, 9869);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
@@ -1452,14 +1452,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(231:8) {#if source}",
+    		source: "(233:8) {#if source}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (225:18)      <AnimationLogo /> {:then _}
+    // (227:18)      <AnimationLogo /> {:then _}
     function create_pending_block(ctx) {
     	let animationlogo;
     	let current;
@@ -1492,14 +1492,14 @@ var app = (function () {
     		block,
     		id: create_pending_block.name,
     		type: "pending",
-    		source: "(225:18)      <AnimationLogo /> {:then _}",
+    		source: "(227:18)      <AnimationLogo /> {:then _}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (237:0) { #if scrollToBlock[frameNumber] }
+    // (239:0) { #if scrollToBlock[frameNumber] }
     function create_if_block_1(ctx) {
     	let scrollerblock;
     	let current;
@@ -1550,14 +1550,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(237:0) { #if scrollToBlock[frameNumber] }",
+    		source: "(239:0) { #if scrollToBlock[frameNumber] }",
     		ctx
     	});
 
     	return block;
     }
 
-    // (246:0) { #if frameNumber > 1111 }
+    // (248:0) { #if frameNumber > 1111 }
     function create_if_block$1(ctx) {
     	let div;
     	let a;
@@ -1569,11 +1569,11 @@ var app = (function () {
     			a = element("a");
     			span = element("span");
     			attr_dev(span, "class", "svelte-jin6qg");
-    			add_location(span, file$1, 248, 12, 10327);
+    			add_location(span, file$1, 250, 12, 10425);
     			attr_dev(a, "href", "https://www.instagram.com/vizualove/");
-    			add_location(a, file$1, 247, 8, 10267);
+    			add_location(a, file$1, 249, 8, 10365);
     			attr_dev(div, "class", "linker svelte-jin6qg");
-    			add_location(div, file$1, 246, 4, 10238);
+    			add_location(div, file$1, 248, 4, 10336);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -1589,7 +1589,7 @@ var app = (function () {
     		block,
     		id: create_if_block$1.name,
     		type: "if",
-    		source: "(246:0) { #if frameNumber > 1111 }",
+    		source: "(248:0) { #if frameNumber > 1111 }",
     		ctx
     	});
 
@@ -1808,6 +1808,7 @@ var app = (function () {
     		},
     		{
     			id: 'mushrooms',
+    			src: '/assets/graphs/mushrooms.png',
     			stopFrame: 533,
     			duration: COMMON_DURATION,
     			title: 'Bioluminiscenční Houby',
@@ -1816,6 +1817,7 @@ var app = (function () {
     		},
     		{
     			id: 'jellyfish',
+    			src: '/assets/graphs/jellyfish.png',
     			stopFrame: 606,
     			duration: COMMON_DURATION,
     			title: 'Medúza',

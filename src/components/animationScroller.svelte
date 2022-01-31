@@ -55,6 +55,7 @@
         },
         {
             id: 'mushrooms',
+            src: '/assets/graphs/mushrooms.png',
             stopFrame: 533,
             duration: COMMON_DURATION,
             title: 'Bioluminiscenční Houby',
@@ -63,6 +64,7 @@
         },
         {
             id: 'jellyfish',
+            src: '/assets/graphs/jellyfish.png',
             stopFrame: 606,
             duration: COMMON_DURATION,
             title: 'Medúza',
